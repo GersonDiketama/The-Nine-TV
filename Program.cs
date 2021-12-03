@@ -52,24 +52,47 @@ namespace NinetiesTV
         // 2. Return a list of show names ordered alphabetically.
         static List<string> NamesAlphabetically(List<Show> shows)
         {
+            Console.WriteLine("Alphabetically Order:");
+
+            // var names = shows.OrderBy(s => s.Name).ToList();
+
+            // foreach (var name in names)
+            // {
+            //     Console.WriteLine(name.Name);
+
+            // }
+
+
+            return shows.OrderBy(s => s.Name).Select(s => s.Name).ToList();
+
             throw new NotImplementedException();
+
         }
 
         // 3. Return a list of shows ordered by their IMDB Rating with the highest rated show first.
         static List<Show> ShowsByPopularity(List<Show> shows)
         {
+
+
+            return shows.OrderByDescending(numbers => numbers.ImdbRating).ToList();
+
+
+
             throw new NotImplementedException();
         }
 
         // 4. Return a list of shows whose title contains an & character.
         static List<Show> ShowsWithAmpersand(List<Show> shows)
         {
+            shows.Where(s => s.Name.Contains("&")).ToList();
+
             throw new NotImplementedException();
         }
 
         // 5. Return the most recent year that any of the shows aired.
         static int MostRecentYear(List<Show> shows)
         {
+            return shows.Max(s => s.EndYear);
             throw new NotImplementedException();
         }
 
